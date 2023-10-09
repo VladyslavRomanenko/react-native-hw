@@ -1,10 +1,25 @@
 import { StatusBar } from "expo-status-bar";
-import { StyleSheet, Text, View } from "react-native";
+import { useFonts } from "expo-font";
+import { ScrollView, StyleSheet, View } from "react-native";
+import RegistrationScreen from "./Screens/RegistrationScreen";
+import LoginScreen from "./Screens/LoginScreen";
+import Example from "./Screens/Example";
 
 export default function App() {
+  const [fontsLoaded] = useFonts({
+    "Roboto-400": require("./assets/fonts/Roboto-Regular.ttf"),
+    "Roboto-500": require("./assets/fonts/Roboto-Medium.ttf"),
+    "Roboto-700": require("./assets/fonts/Roboto-Bold.ttf"),
+  });
+
+  if (!fontsLoaded) {
+    return null;
+  }
   return (
     <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
+      {/* <LoginScreen /> */}
+      <RegistrationScreen />
+      {/* <Example /> */}
       <StatusBar style="auto" />
     </View>
   );
@@ -13,8 +28,5 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#fff",
-    alignItems: "center",
-    justifyContent: "center",
   },
 });
