@@ -1,16 +1,15 @@
 import React from "react";
 import { StyleSheet, TouchableOpacity } from "react-native";
-import FontAwesome5 from "react-native-vector-icons/FontAwesome5";
+import AddPhotoIcon from "../assets/icons/AddPhotoIcon";
 
 const ImageInput = () => {
   return (
-    <TouchableOpacity style={styles.photo} activeOpacity={1} onPress={() => {}}>
-      <FontAwesome5
-        name="plus-circle"
-        size={25}
-        color="#FF6C00"
-        backgroundColor="#fafafa"
-        style={styles.plusBtn}
+    <TouchableOpacity style={styles.photo} activeOpacity={1}>
+      <AddPhotoIcon
+        fill_color="#FF6C00"
+        width={40}
+        style={styles.addBtn}
+        onPress={() => {}}
       />
     </TouchableOpacity>
   );
@@ -26,10 +25,11 @@ const styles = StyleSheet.create({
     top: -60,
     left: 125,
   },
-  plusBtn: {
+  addBtn: {
     position: "absolute",
-    right: -12,
-    bottom: 20,
+    right: -18,
+    bottom: 10,
+    transform: [{ rotate: "45deg" }],
   },
 });
 

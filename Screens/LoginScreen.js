@@ -15,16 +15,25 @@ import FormContainer from "../components/FormContainer";
 const LoginScreen = () => {
   const [showPassword, setShowPassword] = useState(false);
   const [password, setPassword] = useState("");
+  const [login, setLogin] = useState("");
 
   const toggleShowPassword = () => {
     setShowPassword(!showPassword);
+  };
+
+  const handleSubmit = () => {
+    console.log({ login, password });
   };
 
   return (
     <BackGroundAuthentication>
       <View style={styles.container}>
         <Text style={styles.loginTitle}>Увійти</Text>
-        <Input placeholder="Адреса електронної пошти" />
+        <Input
+          placeholder="Адреса електронної пошти"
+          value={login}
+          onChangeText={(text) => setLogin(text)}
+        />
 
         <Input
           placeholder="Пароль"
@@ -44,12 +53,16 @@ const LoginScreen = () => {
             </Text>
           </TouchableOpacity>
         )}
-        <TouchableOpacity style={styles.btnSubmit} activeOpacity={1}>
+        <TouchableOpacity
+          style={styles.btnSubmit}
+          activeOpacity={1}
+          onPress={handleSubmit}
+        >
           <Text style={styles.btnSubmitText}>Увійти</Text>
         </TouchableOpacity>
         <View style={styles.textRegister}>
           <Text style={styles.textAcc}>Немає акаунту? </Text>
-          <TouchableOpacity onPress={() => {}} activeOpacity={0.7}>
+          <TouchableOpacity activeOpacity={0.7}>
             <Text style={styles.registerLink}>Зареєструватися</Text>
           </TouchableOpacity>
         </View>

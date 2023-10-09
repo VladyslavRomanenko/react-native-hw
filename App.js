@@ -3,7 +3,6 @@ import { useFonts } from "expo-font";
 import { ScrollView, StyleSheet, View } from "react-native";
 import RegistrationScreen from "./Screens/RegistrationScreen";
 import LoginScreen from "./Screens/LoginScreen";
-import Example from "./Screens/Example";
 
 export default function App() {
   const [fontsLoaded] = useFonts({
@@ -19,7 +18,6 @@ export default function App() {
     <View style={styles.container}>
       {/* <LoginScreen /> */}
       <RegistrationScreen />
-      {/* <Example /> */}
       <StatusBar style="auto" />
     </View>
   );
