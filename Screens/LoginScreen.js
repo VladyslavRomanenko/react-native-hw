@@ -11,6 +11,7 @@ import {
 import BackGroundAuthentication from "../components/BackGroundAuthentication";
 import Input from "../components/Input";
 import FormContainer from "../components/FormContainer";
+import CustomButton from "../components/CustomButton";
 
 const LoginScreen = () => {
   const [showPassword, setShowPassword] = useState(false);
@@ -53,13 +54,11 @@ const LoginScreen = () => {
             </Text>
           </TouchableOpacity>
         )}
-        <TouchableOpacity
-          style={styles.btnSubmit}
-          activeOpacity={1}
-          onPress={handleSubmit}
-        >
-          <Text style={styles.btnSubmitText}>Увійти</Text>
-        </TouchableOpacity>
+        <CustomButton
+          title={"Увійти"}
+          onPress={() => {}}
+          style={{ marginTop: 43 }}
+        />
         <View style={styles.textRegister}>
           <Text style={styles.textAcc}>Немає акаунту? </Text>
           <TouchableOpacity activeOpacity={0.7}>

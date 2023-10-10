@@ -14,6 +14,7 @@ import ImageInput from "../components/ImageInput";
 import BackGroundAuthentication from "../components/BackGroundAuthentication";
 import Input from "../components/Input";
 import FormContainer from "../components/FormContainer";
+import CustomButton from "../components/CustomButton";
 
 const RegistrationScreen = () => {
   const [showPassword, setShowPassword] = useState(false);
@@ -49,13 +50,11 @@ const RegistrationScreen = () => {
             </Text>
           </TouchableOpacity>
         )}
-        <TouchableOpacity
-          style={styles.btnSubmit}
-          activeOpacity={1}
+        <CustomButton
+          title={"Зареєструватися"}
           onPress={() => {}}
-        >
-          <Text style={styles.btnSubmitText}>Зареєструватися</Text>
-        </TouchableOpacity>
+          style={{ marginTop: 27 }}
+        />
         <View style={styles.textRegister}>
           <Text style={styles.textAcc}>Вже є акаунт? </Text>
           <TouchableOpacity onPress={() => {}} activeOpacity={0.7}>
@@ -123,7 +122,7 @@ const styles = StyleSheet.create({
   showPasswordButton: {
     position: "absolute",
     right: 32,
-    bottom: 255,
+    bottom: 200,
   },
   showPasswordButtonText: {
     fontSize: 16,
