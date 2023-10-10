@@ -71,7 +71,7 @@ const styles = StyleSheet.create({
     paddingLeft: 16,
     paddingRight: 16,
     paddingTop: 92,
-    paddingBottom: Platform.OS === "ios" ? 40 : 16,
+    paddingBottom: Platform.OS === "ios" ? 66 : 26,
   },
   plusBtn: {
     position: "absolute",

@@ -75,7 +75,7 @@ const styles = StyleSheet.create({
     paddingLeft: 16,
     paddingRight: 16,
     paddingTop: 32,
-    paddingBottom: 60,
+    paddingBottom: Platform.OS === "ios" ? 132 : 50,
   },
   loginTitle: {
     textAlign: "center",

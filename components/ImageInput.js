@@ -1,5 +1,5 @@
 import React from "react";
-import { StyleSheet, TouchableOpacity } from "react-native";
+import { Platform, StyleSheet, TouchableOpacity } from "react-native";
 import AddPhotoIcon from "../assets/icons/AddPhotoIcon";
 
 const ImageInput = () => {
@@ -23,7 +23,7 @@ const styles = StyleSheet.create({
     borderRadius: 16,
     position: "absolute",
     top: -60,
-    left: 125,
+    left: Platform.OS === "ios" ? 130 : 143,
   },
   addBtn: {
     position: "absolute",
