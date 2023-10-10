@@ -56,7 +56,7 @@ const LoginScreen = () => {
         )}
         <CustomButton
           title={"Увійти"}
-          onPress={() => {}}
+          onPress={handleSubmit}
           style={{ marginTop: 43 }}
         />
         <View style={styles.textRegister}>
@@ -75,7 +75,7 @@ const styles = StyleSheet.create({
     paddingLeft: 16,
     paddingRight: 16,
     paddingTop: 32,
-    paddingBottom: Platform.OS === "ios" ? 132 : 50,
+    paddingBottom: Platform.OS === "ios" ? 125 : 50,
   },
   loginTitle: {
     textAlign: "center",

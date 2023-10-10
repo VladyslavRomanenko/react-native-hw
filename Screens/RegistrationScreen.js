@@ -19,9 +19,15 @@ import CustomButton from "../components/CustomButton";
 const RegistrationScreen = () => {
   const [showPassword, setShowPassword] = useState(false);
   const [password, setPassword] = useState("");
+  const [login, setLogin] = useState("");
+  const [email, setEmail] = useState("");
 
   const toggleShowPassword = () => {
     setShowPassword(!showPassword);
+  };
+
+  const handleSubmit = () => {
+    console.log({ login, email, password });
   };
 
   return (
@@ -30,8 +36,20 @@ const RegistrationScreen = () => {
         <ImageInput />
         <Text style={styles.text}>Реєстрація</Text>
 
-        <Input placeholder="Логін" />
-        <Input placeholder="Адреса електронної пошти" />
+        <Input
+          placeholder="Логін"
+          value={login}
+          onChangeText={(text) => {
+            setLogin(text);
+          }}
+        />
+        <Input
+          placeholder="Адреса електронної пошти"
+          value={email}
+          onChangeText={(text) => {
+            setEmail(text);
+          }}
+        />
         <Input
           placeholder="Пароль"
           secureTextEntry={!showPassword}
@@ -52,7 +70,7 @@ const RegistrationScreen = () => {
         )}
         <CustomButton
           title={"Зареєструватися"}
-          onPress={() => {}}
+          onPress={handleSubmit}
           style={{ marginTop: 27 }}
         />
         <View style={styles.textRegister}>
@@ -71,7 +89,7 @@ const styles = StyleSheet.create({
     paddingLeft: 16,
     paddingRight: 16,
     paddingTop: 92,
-    paddingBottom: Platform.OS === "ios" ? 66 : 26,
+    paddingBottom: Platform.OS === "ios" ? 50 : 26,
   },
   plusBtn: {
     position: "absolute",
@@ -122,7 +140,7 @@ const styles = StyleSheet.create({
   showPasswordButton: {
     position: "absolute",
     right: 32,
-    bottom: Platform.OS === "ios" ? 185 : 172,
+    bottom: Platform.OS === "ios" ? 197 : 172,
   },
   showPasswordButtonText: {
     fontSize: 16,
