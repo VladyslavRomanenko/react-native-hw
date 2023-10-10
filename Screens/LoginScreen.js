@@ -125,7 +125,7 @@ const styles = StyleSheet.create({
   showPasswordButton: {
     position: "absolute",
     right: 32,
-    top: 188,
+    top: Platform.OS === "ios" ? 185 : 202,
   },
   showPasswordButtonText: {
     fontSize: 16,

@@ -7,18 +7,19 @@ import {
   Platform,
   StyleSheet,
   TouchableWithoutFeedback,
-  View,
 } from "react-native";
 
 const BackGroundAuthentication = ({ children }) => {
   return (
     <ImageBackground source={bgImage} style={styles.container}>
-      <KeyboardAvoidingView
-        behavior={Platform.OS === "ios" ? "padding" : "height"}
-        style={styles.auth}
-      >
-        {children}
-      </KeyboardAvoidingView>
+      <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
+        <KeyboardAvoidingView
+          behavior={Platform.OS === "ios" ? "padding" : "height"}
+          style={styles.auth}
+        >
+          {children}
+        </KeyboardAvoidingView>
+      </TouchableWithoutFeedback>
     </ImageBackground>
   );
 };
