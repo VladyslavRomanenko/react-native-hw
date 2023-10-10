@@ -15,7 +15,6 @@ const BackGroundAuthentication = ({ children }) => {
       <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
         <KeyboardAvoidingView
           behavior={Platform.OS === "ios" ? "padding" : "height"}
-          style={styles.auth}
         >
           {children}
         </KeyboardAvoidingView>
@@ -28,12 +27,6 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     justifyContent: "flex-end",
-  },
-
-  auth: {
-    backgroundColor: "white",
-    borderTopEndRadius: 25,
-    borderTopStartRadius: 25,
   },
 });
 

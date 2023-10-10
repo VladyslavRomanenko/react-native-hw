@@ -75,7 +75,10 @@ const styles = StyleSheet.create({
     paddingLeft: 16,
     paddingRight: 16,
     paddingTop: 32,
-    paddingBottom: Platform.OS === "ios" ? 125 : 50,
+    paddingBottom: Platform.OS === "ios" ? 50 : 50,
+    backgroundColor: "white",
+    borderTopEndRadius: 25,
+    borderTopStartRadius: 25,
   },
   loginTitle: {
     textAlign: "center",

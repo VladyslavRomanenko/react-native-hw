@@ -90,6 +90,9 @@ const styles = StyleSheet.create({
     paddingRight: 16,
     paddingTop: 92,
     paddingBottom: Platform.OS === "ios" ? 50 : 26,
+    backgroundColor: "white",
+    borderTopEndRadius: 25,
+    borderTopStartRadius: 25,
   },
   plusBtn: {
     position: "absolute",
