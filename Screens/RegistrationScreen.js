@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+import { useNavigation, useRoute } from "@react-navigation/native";
+
 import {
   StyleSheet,
   Text,
@@ -17,6 +19,8 @@ import FormContainer from "../components/FormContainer";
 import CustomButton from "../components/CustomButton";
 
 const RegistrationScreen = () => {
+  const navigation = useNavigation();
+
   const [showPassword, setShowPassword] = useState(false);
   const [password, setPassword] = useState("");
   const [login, setLogin] = useState("");
@@ -27,7 +31,7 @@ const RegistrationScreen = () => {
   };
 
   const handleSubmit = () => {
-    console.log({ login, email, password });
+    navigation.navigate("Home");
   };
 
   return (
@@ -35,7 +39,6 @@ const RegistrationScreen = () => {
       <View style={styles.innerContainer}>
         <ImageInput />
         <Text style={styles.text}>Реєстрація</Text>
-
         <Input
           placeholder="Логін"
           value={login}
@@ -75,7 +78,12 @@ const RegistrationScreen = () => {
         />
         <View style={styles.textRegister}>
           <Text style={styles.textAcc}>Вже є акаунт? </Text>
-          <TouchableOpacity onPress={() => {}} activeOpacity={0.7}>
+          <TouchableOpacity
+            onPress={() => {
+              navigation.navigate("Login");
+            }}
+            activeOpacity={0.7}
+          >
             <Text style={styles.registerLink}>Увійти</Text>
           </TouchableOpacity>
         </View>
@@ -143,7 +151,7 @@ const styles = StyleSheet.create({
   showPasswordButton: {
     position: "absolute",
     right: 32,
-    bottom: Platform.OS === "ios" ? 197 : 172,
+    bottom: Platform.OS === "ios" ? 197 : 180,
   },
   showPasswordButtonText: {
     fontSize: 16,

@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useNavigation } from "@react-navigation/native";
 import {
   StyleSheet,
   Text,
@@ -14,6 +15,8 @@ import FormContainer from "../components/FormContainer";
 import CustomButton from "../components/CustomButton";
 
 const LoginScreen = () => {
+  const navigation = useNavigation();
+
   const [showPassword, setShowPassword] = useState(false);
   const [password, setPassword] = useState("");
   const [login, setLogin] = useState("");
@@ -23,7 +26,7 @@ const LoginScreen = () => {
   };
 
   const handleSubmit = () => {
-    console.log({ login, password });
+    navigation.navigate("Home");
   };
 
   return (
@@ -61,7 +64,10 @@ const LoginScreen = () => {
         />
         <View style={styles.textRegister}>
           <Text style={styles.textAcc}>Немає акаунту? </Text>
-          <TouchableOpacity activeOpacity={0.7}>
+          <TouchableOpacity
+            activeOpacity={0.7}
+            onPress={() => navigation.navigate("Registration")}
+          >
             <Text style={styles.registerLink}>Зареєструватися</Text>
           </TouchableOpacity>
         </View>
