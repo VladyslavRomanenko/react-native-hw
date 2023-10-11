@@ -9,12 +9,10 @@ import {
 } from "react-native";
 import LogoutIcon from "../assets/icons/LogoutIcon";
 import { useNavigation, useRoute } from "@react-navigation/core";
+import PostsList from "../components/PostsList";
 
 const PostsScreen = () => {
   const navigation = useNavigation();
-  // const {
-  //   params: { login, email },
-  // } = useRoute();
   return (
     <SafeAreaView style={styles.container}>
       <View style={styles.userInfo}>
@@ -24,8 +22,8 @@ const PostsScreen = () => {
           <Text style={styles.email}>Example.com.ua</Text>
         </View>
       </View>
-      <View>
-        <Text> POSTS</Text>
+      <View style={styles.posts}>
+        <PostsList />
       </View>
     </SafeAreaView>
   );
@@ -53,6 +51,9 @@ const styles = StyleSheet.create({
     fontFamily: "Roboto-400",
     fontSize: 11,
     color: "rgba(33, 33, 33, 0.80)",
+  },
+  posts: {
+    alignItems: "center",
   },
 });
 
