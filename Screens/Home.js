@@ -1,4 +1,5 @@
 import React from "react";
+import { Ionicons, AntDesign } from "@expo/vector-icons";
 import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
 import PostsScreen from "./PostsScreen";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
@@ -6,11 +7,9 @@ import CreatePostsScreen from "./CreatePostsScreen";
 import ProfileScreen from "./ProfileScreen";
 import PostsIcon from "../assets/icons/PostsIcon";
 import ArrowIcon from "../assets/icons/ArrowIcon";
-import AddPhotoIcon from "../assets/icons/AddPhotoIcon";
-import UserIcon from "../assets/icons/UserIcon";
-import CreatePostIcon from "../assets/icons/CreatePostIcon";
 import LogoutIcon from "../assets/icons/LogoutIcon";
 import { useNavigation } from "@react-navigation/core";
+import AddPostButton from "../components/AddPostButton";
 
 const Tabs = createBottomTabNavigator();
 
@@ -22,22 +21,33 @@ const Home = ({ navigation }) => {
         screenOptions={({ route }) => ({
           tabBarIcon: ({ focused, color, size }) => {
             if (route.name === "Posts") {
-              return <PostsIcon />;
+              let color;
+              color = focused ? "#FF6C00" : "#212121";
+              return <AntDesign name="appstore-o" size={24} color={color} />;
             } else if (route.name === "Create") {
-              return <CreatePostIcon />;
+              return (
+                <AddPostButton
+                  title={"+"}
+                  onPress={() => navigation.navigate("Create")}
+                />
+              );
             } else if (route.name === "Profile") {
-              return <UserIcon />;
+              let color;
+              color = focused ? "#FF6C00" : "#212121";
+              return <AntDesign name="user" size={24} color={color} />;
             }
           },
-          // tabBarActiveTintColor: "tomato",
-          // tabBarInactiveTintColor: "gray",
+          tabBarStyle: {
+            paddingTop: 9,
+            height: 83,
+          },
+          tabBarShowLabel: false,
         })}
       >
         <Tabs.Screen
           name="Posts"
           options={{
             title: "Публікації",
-            tabBarLabel: "",
             headerStyle: {
               backgroundColor: "#fff",
             },
@@ -62,9 +72,8 @@ const Home = ({ navigation }) => {
         />
         <Tabs.Screen
           name="Create"
-          options={{
+          options={({ route }) => ({
             title: "Створити публікацію",
-            tabBarLabel: "",
             headerLeft: () => {
               const navigation = useNavigation();
               return (
@@ -79,14 +88,14 @@ const Home = ({ navigation }) => {
                 </TouchableOpacity>
               );
             },
-          }}
+            tabBarVisible: false,
+          })}
           component={CreatePostsScreen}
         />
         <Tabs.Screen
           name="Profile"
           options={{
             headerShown: false,
-            tabBarLabel: "",
           }}
           component={ProfileScreen}
         />

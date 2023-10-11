@@ -3,7 +3,6 @@ import {
   Image,
   Keyboard,
   KeyboardAvoidingView,
-  SafeAreaView,
   ScrollView,
   StyleSheet,
   Text,
@@ -17,6 +16,7 @@ import LocationIcon from "../assets/icons/LocationIcon";
 import CustomButton from "../components/CustomButton";
 import FormContainer from "../components/FormContainer";
 import BackGroundAuthentication from "../components/BackGroundAuthentication";
+import DeletePost from "../components/DeletePost";
 
 const CreatePostsScreen = () => {
   const [title, setTitle] = useState("");
@@ -72,6 +72,7 @@ const CreatePostsScreen = () => {
               onPress={() => {}}
             />
           </View>
+          <DeletePost onPress={() => {}} />
         </KeyboardAvoidingView>
       </TouchableWithoutFeedback>
     </View>
@@ -88,6 +89,7 @@ const styles = StyleSheet.create({
     paddingRight: 16,
     paddingTop: 32,
     justifyContent: "center",
+    marginBottom: 65,
   },
   photoLoad: {
     backgroundColor: "#F6F6F6",

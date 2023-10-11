@@ -1,18 +1,10 @@
 import React from "react";
-import {
-  Image,
-  SafeAreaView,
-  StyleSheet,
-  Text,
-  TouchableOpacity,
-  View,
-} from "react-native";
-import LogoutIcon from "../assets/icons/LogoutIcon";
+import { Image, StyleSheet, Text, View } from "react-native";
 import PostsList from "../components/PostsList";
 
 const PostsScreen = () => {
   return (
-    <SafeAreaView style={styles.container}>
+    <View style={styles.container}>
       <View style={styles.userInfo}>
         <Image source={require("../assets/photo_natali.png")} />
         <View>
@@ -23,7 +15,7 @@ const PostsScreen = () => {
       <View style={styles.posts}>
         <PostsList />
       </View>
-    </SafeAreaView>
+    </View>
   );
 };
 

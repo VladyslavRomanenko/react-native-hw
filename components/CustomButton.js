@@ -9,7 +9,14 @@ const CustomButton = ({ title, onPress, disabled = false, style }) => {
       style={[styles.btn, style]}
       activeOpacity={1}
     >
-      <Text style={styles.textBtn}>{title}</Text>
+      <Text
+        style={[
+          styles.textBtn,
+          { color: disabled === true ? "#BDBDBD" : "#FFF" },
+        ]}
+      >
+        {title}
+      </Text>
     </TouchableOpacity>
   );
 };

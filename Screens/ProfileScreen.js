@@ -6,7 +6,6 @@ import {
   TouchableOpacity,
   View,
 } from "react-native";
-import BackGroundAuthentication from "../components/BackGroundAuthentication";
 import LogoutIcon from "../assets/icons/LogoutIcon";
 import ImageInput from "../components/ImageInput";
 import bgImage from "../assets/bg-auth.png";
@@ -41,7 +40,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: "#FFF",
-    marginTop: 203,
+    marginTop: 190,
     paddingLeft: 16,
     paddingRight: 16,
     paddingTop: 92,
