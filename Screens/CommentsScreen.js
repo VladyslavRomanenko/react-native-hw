@@ -1,10 +1,8 @@
-import React from 'react'
-import { View } from 'react-native'
+import React from "react";
+import { View } from "react-native";
 
 const CommentsScreen = () => {
-  return (
-   <View></View>
-  )
-}
+  return <View></View>;
+};
 
-export default CommentsScreen
+export default CommentsScreen;

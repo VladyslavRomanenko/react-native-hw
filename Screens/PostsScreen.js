@@ -8,11 +8,9 @@ import {
   View,
 } from "react-native";
 import LogoutIcon from "../assets/icons/LogoutIcon";
-import { useNavigation, useRoute } from "@react-navigation/core";
 import PostsList from "../components/PostsList";
 
 const PostsScreen = () => {
-  const navigation = useNavigation();
   return (
     <SafeAreaView style={styles.container}>
       <View style={styles.userInfo}>

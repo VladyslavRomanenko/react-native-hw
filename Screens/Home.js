@@ -1,17 +1,20 @@
 import React from "react";
-import { StyleSheet, View } from "react-native";
+import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
 import PostsScreen from "./PostsScreen";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import CreatePostsScreen from "./CreatePostsScreen";
 import ProfileScreen from "./ProfileScreen";
 import PostsIcon from "../assets/icons/PostsIcon";
+import ArrowIcon from "../assets/icons/ArrowIcon";
 import AddPhotoIcon from "../assets/icons/AddPhotoIcon";
 import UserIcon from "../assets/icons/UserIcon";
 import CreatePostIcon from "../assets/icons/CreatePostIcon";
+import LogoutIcon from "../assets/icons/LogoutIcon";
+import { useNavigation } from "@react-navigation/core";
 
 const Tabs = createBottomTabNavigator();
 
-const Home = () => {
+const Home = ({ navigation }) => {
   return (
     <View style={styles.container}>
       <Tabs.Navigator
@@ -26,20 +29,56 @@ const Home = () => {
               return <UserIcon />;
             }
           },
-          tabBarActiveTintColor: "tomato",
-          tabBarInactiveTintColor: "gray",
+          // tabBarActiveTintColor: "tomato",
+          // tabBarInactiveTintColor: "gray",
         })}
       >
         <Tabs.Screen
           name="Posts"
-          options={{ headerShown: false, tabBarLabel: "" }}
+          options={{
+            title: "Публікації",
+            tabBarLabel: "",
+            headerStyle: {
+              backgroundColor: "#fff",
+            },
+            headerTintColor: "#212121",
+            headerTitleStyle: {
+              fontFamily: "Roboto-500",
+              fontSize: 17,
+            },
+            headerRight: () => (
+              <TouchableOpacity
+                style={{ paddingRight: 16, paddingBottom: 10 }}
+                activeOpacity={1}
+                onPress={() => {
+                  navigation.navigate("Login");
+                }}
+              >
+                <LogoutIcon />
+              </TouchableOpacity>
+            ),
+          }}
           component={PostsScreen}
         />
         <Tabs.Screen
           name="Create"
           options={{
-            headerShown: false,
+            title: "Створити публікацію",
             tabBarLabel: "",
+            headerLeft: () => {
+              const navigation = useNavigation();
+              return (
+                <TouchableOpacity
+                  style={{ paddingLeft: 16, paddingTop: 10, paddingBottom: 10 }}
+                  activeOpacity={1}
+                  onPress={() => {
+                    navigation.goBack();
+                  }}
+                >
+                  <ArrowIcon />
+                </TouchableOpacity>
+              );
+            },
           }}
           component={CreatePostsScreen}
         />

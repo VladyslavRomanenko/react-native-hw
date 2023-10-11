@@ -52,7 +52,6 @@ const CreatePostsScreen = () => {
               <TextInput
                 placeholder="Місцевість..."
                 style={[styles.input, { paddingLeft: 28 }]}
-                placeholderTextColor={"BDBDBD"}
                 value={location}
                 onChangeText={(text) => {
                   setLocation(text);
@@ -65,10 +64,12 @@ const CreatePostsScreen = () => {
             </View>
             <CustomButton
               title={"Опублікувати"}
+              disabled={!isFormValid ? true : false}
               style={{
                 backgroundColor: isFormValid ? "#FF6C00" : "#F6F6F6",
                 marginTop: 32,
               }}
+              onPress={() => {}}
             />
           </View>
         </KeyboardAvoidingView>

@@ -11,6 +11,7 @@ import ProfileScreen from "../Screens/ProfileScreen";
 import PostsScreen from "../Screens/PostsScreen";
 import LogoutIcon from "../assets/icons/LogoutIcon";
 import { TouchableOpacity } from "react-native";
+import ArrowIcon from "../assets/icons/ArrowIcon";
 
 const MainStack = createStackNavigator();
 const Navigation = () => {
@@ -27,59 +28,32 @@ const Navigation = () => {
           component={LoginScreen}
           options={{ headerShown: false }}
         />
-        <MainStack.Screen name="Posts" component={PostsScreen} />
         <MainStack.Screen
           name="Home"
           component={Home}
-          options={{
-            title: "Публікації",
-            headerStyle: {
-              backgroundColor: "#fff",
-            },
-            headerLeft: null,
-            headerTintColor: "#212121",
-            headerTitleStyle: {
-              fontFamily: "Roboto-500",
-              fontSize: 17,
-            },
-            headerRight: () => (
-              <TouchableOpacity
-                style={{
-                  paddingRight: 16,
-                  paddingBottom: 10,
-                }}
-                activeOpacity={1}
-              >
-                <LogoutIcon />
-              </TouchableOpacity>
-            ),
-          }}
+          options={{ headerShown: false }}
         />
-        <MainStack.Screen
-          name="Create"
-          component={CreatePostsScreen}
-          options={{
-            title: "Створити публікацію",
-            headerStyle: {
-              backgroundColor: "#fff",
-            },
-            headerLeft: true,
-            headerTintColor: "#212121",
-            headerTitleStyle: {
-              fontFamily: "Roboto-500",
-              fontSize: 17,
-            },
-          }}
-        />
+
         <MainStack.Screen
           name="Comment"
           component={CommentsScreen}
-          options={{ headerShown: false }}
-        />
-        <MainStack.Screen
-          name="Profile"
-          component={ProfileScreen}
-          options={{ headerShown: false }}
+          options={{
+            title: "Коментарі",
+            headerLeft: () => {
+              const navigation = useNavigation();
+              return (
+                <TouchableOpacity
+                  style={{ paddingLeft: 16, paddingTop: 10, paddingBottom: 10 }}
+                  activeOpacity={1}
+                  onPress={() => {
+                    navigation.goBack();
+                  }}
+                >
+                  <ArrowIcon />
+                </TouchableOpacity>
+              );
+            },
+          }}
         />
       </MainStack.Navigator>
     </NavigationContainer>

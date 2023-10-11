@@ -3,18 +3,28 @@ import { Image, StyleSheet, Text, TouchableOpacity, View } from "react-native";
 import exmplImage from "../assets/image-1.png";
 import CommentIcon from "../assets/icons/CommentIcon";
 import LocationIcon from "../assets/icons/LocationIcon";
+import LikeIcon from "../assets/icons/LikeIcon";
+import { useNavigation } from "@react-navigation/core";
 
 const Post = () => {
+  const navigation = useNavigation();
   return (
     <View style={styles.post}>
       <Image source={exmplImage} style={styles.image} />
       <Text style={styles.text}>Wood</Text>
       <View style={styles.container}>
         <View style={styles.commentsContainer}>
-          <TouchableOpacity activeOpacity={1}>
+          <TouchableOpacity
+            activeOpacity={1}
+            onPress={() => navigation.navigate("Comment")}
+          >
             <CommentIcon />
           </TouchableOpacity>
-          <Text style={styles.amountComments}>0</Text>
+          <Text style={styles.commentsLikes}>0</Text>
+          <View style={styles.likeContainer}>
+            <LikeIcon />
+            <Text style={styles.commentsLikes}>0</Text>
+          </View>
         </View>
         <View style={styles.locationContainer}>
           <LocationIcon />
@@ -50,12 +60,18 @@ const styles = StyleSheet.create({
     alignItems: "center",
     gap: 6,
   },
+  likeContainer: {
+    flexDirection: "row",
+    alignItems: "center",
+    gap: 6,
+  },
+
   locationContainer: {
     flexDirection: "row",
     alignItems: "center",
     gap: 4,
   },
-  amountComments: {
+  commentsLikes: {
     color: "#BDBDBD",
     fontSize: 16,
     fontFamily: "Roboto-400",

@@ -1,17 +1,33 @@
 import React from "react";
-import { Platform, StyleSheet, TouchableOpacity } from "react-native";
+import {
+  Image,
+  ImageBackground,
+  Platform,
+  StyleSheet,
+  TouchableOpacity,
+  View,
+} from "react-native";
 import AddPhotoIcon from "../assets/icons/AddPhotoIcon";
 
-const ImageInput = () => {
+const ImageInput = ({ photo }) => {
   return (
-    <TouchableOpacity style={styles.photo} activeOpacity={1}>
-      <AddPhotoIcon
-        fill_color="#FF6C00"
-        width={40}
-        style={styles.addBtn}
-        onPress={() => {}}
-      />
-    </TouchableOpacity>
+    <View style={styles.photo} activeOpacity={1}>
+      <ImageBackground style={styles.photoContainer} source={photo}>
+        <AddPhotoIcon
+          fill_color={photo ? "#E8E8E8" : "#FF6C00"}
+          width={40}
+          style={[
+            styles.addBtn,
+            {
+              transform: photo ? [{ rotate: "0deg" }] : [{ rotate: "45deg" }],
+            },
+          ]}
+          onPress={() => {
+            console.log("object");
+          }}
+        />
+      </ImageBackground>
+    </View>
   );
 };
 
@@ -25,11 +41,18 @@ const styles = StyleSheet.create({
     top: -60,
     left: Platform.OS === "ios" ? 130 : 143,
   },
+
+  photoContainer: {
+    width: 120,
+    height: 120,
+    borderRadius: 16,
+    marginLeft: "auto",
+    marginRight: "auto",
+  },
   addBtn: {
     position: "absolute",
     right: -18,
     bottom: 10,
-    transform: [{ rotate: "45deg" }],
   },
 });
 
