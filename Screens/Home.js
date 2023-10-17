@@ -74,6 +74,9 @@ const Home = ({ navigation }) => {
           name="Create"
           options={({ route }) => ({
             title: "Створити публікацію",
+            tabBarStyle: {
+              display: "none",
+            },
             headerLeft: () => {
               const navigation = useNavigation();
               return (
@@ -88,7 +91,6 @@ const Home = ({ navigation }) => {
                 </TouchableOpacity>
               );
             },
-            tabBarVisible: false,
           })}
           component={CreatePostsScreen}
         />

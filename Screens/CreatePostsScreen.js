@@ -89,7 +89,7 @@ const styles = StyleSheet.create({
     paddingRight: 16,
     paddingTop: 32,
     justifyContent: "center",
-    marginBottom: 65,
+    marginBottom: 120,
   },
   photoLoad: {
     backgroundColor: "#F6F6F6",
