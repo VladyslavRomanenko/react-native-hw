@@ -12,6 +12,7 @@ import PostsScreen from "../Screens/PostsScreen";
 import LogoutIcon from "../assets/icons/LogoutIcon";
 import { TouchableOpacity } from "react-native";
 import ArrowIcon from "../assets/icons/ArrowIcon";
+import { MapScreen } from "../Screens/MapScreen";
 
 const MainStack = createStackNavigator();
 const Navigation = () => {
@@ -39,6 +40,27 @@ const Navigation = () => {
           component={CommentsScreen}
           options={{
             title: "Коментарі",
+            headerLeft: () => {
+              const navigation = useNavigation();
+              return (
+                <TouchableOpacity
+                  style={{ paddingLeft: 16, paddingTop: 10, paddingBottom: 10 }}
+                  activeOpacity={1}
+                  onPress={() => {
+                    navigation.goBack();
+                  }}
+                >
+                  <ArrowIcon />
+                </TouchableOpacity>
+              );
+            },
+          }}
+        />
+        <MainStack.Screen
+          name="Map"
+          component={MapScreen}
+          options={{
+            title: "Карта",
             headerLeft: () => {
               const navigation = useNavigation();
               return (

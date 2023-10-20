@@ -8,6 +8,13 @@ import { useNavigation } from "@react-navigation/core";
 
 const Post = () => {
   const navigation = useNavigation();
+  const handleLocation = () => {
+    const locationCoords = {
+      latitude: 48.9226,
+      longitude: 24.7111,
+    };
+    navigation.navigate("Map", { locationCoords });
+  };
   return (
     <View style={styles.post}>
       <Image source={exmplImage} style={styles.image} />
@@ -26,10 +33,14 @@ const Post = () => {
             <Text style={styles.commentsLikes}>0</Text>
           </View>
         </View>
-        <View style={styles.locationContainer}>
+
+        <TouchableOpacity
+          style={styles.locationContainer}
+          onPress={handleLocation}
+        >
           <LocationIcon />
           <Text style={styles.textLocation}>Ivano-Frankivsk</Text>
-        </View>
+        </TouchableOpacity>
       </View>
     </View>
   );

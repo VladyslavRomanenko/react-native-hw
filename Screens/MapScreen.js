@@ -1,10 +1,40 @@
-import React from 'react'
-import { View } from 'react-native'
+import { useEffect, useState } from "react";
+import { StyleSheet, View } from "react-native";
+import MapView, { Marker } from "react-native-maps";
+import { useRoute } from "@react-navigation/native";
 
-const MapScreen = () => {
+export const MapScreen = () => {
+  const [location, setLocation] = useState(null);
+  const route = useRoute();
+
+  useEffect(() => {
+    if (route.params) {
+      setLocation(route.params.locationCoords);
+    }
+  }, [route.params]);
+
   return (
-    <View></View>
-  )
-}
+    <View style={styles.container}>
+      <MapView
+        style={styles.map}
+        region={{
+          ...location,
+          latitudeDelta: 0.001,
+          longitudeDelta: 0.007,
+        }}
+      >
+        <Marker title="Post location" coordinate={location} />
+      </MapView>
+    </View>
+  );
+};
 
-export default MapScreen
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+  },
+  map: {
+    width: "100%",
+    height: "100%",
+  },
+});

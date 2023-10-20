@@ -8,6 +8,7 @@ import {
   View,
 } from "react-native";
 import Navigation from "./navigation/Navigation";
+import MapScreen from "./Screens/MapScreen";
 
 export default function App() {
   const [fontsLoaded] = useFonts({
