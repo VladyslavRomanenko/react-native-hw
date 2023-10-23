@@ -25,6 +25,18 @@
     },
     "web": {
       "favicon": "./assets/favicon.png"
+    },
+    "extra": {
+      "eas": {
+        "projectId": "9dfb642d-90a0-4622-8860-a7f80ca8decf"
+      }
+    },
+    "owner": "vlromxm",
+    "runtimeVersion": {
+      "policy": "appVersion"
+    },
+    "updates": {
+      "url": "https://u.expo.dev/9dfb642d-90a0-4622-8860-a7f80ca8decf"
     }
   }
 }
